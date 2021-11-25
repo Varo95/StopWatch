@@ -82,6 +82,10 @@ public class StopWatch implements Runnable {
         return this.requestSuspend;
     }
 
+    public Thread getThread(){
+        return this.t;
+    }
+
     @Override
     public void run() {
         loop();

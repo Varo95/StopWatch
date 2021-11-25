@@ -65,8 +65,12 @@ public class MainController {
             btnStart.setStyle("");
             btnStart.setDisable(false);
         });
-        close.setOnAction(event -> c.stop());
+        close.setOnAction(event -> {
+            if (c.getThread() != null)
+                c.stop();
+            ((Stage) btnStart.getScene().getWindow()).close();
+        });
         about.setOnAction(event -> App.loadScene(new Stage(), "about", "Sobre Chronometer", true, false));
-        Platform.runLater(()-> btnStart.getScene().getWindow().setOnCloseRequest(event -> c.stop()));
+        Platform.runLater(() -> btnStart.getScene().getWindow().setOnCloseRequest(event ->{ if(c.getThread()!=null) c.stop(); }));
     }
 }
