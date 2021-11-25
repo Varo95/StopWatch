@@ -34,7 +34,6 @@ public class MainController {
         btnStart.setOnAction(event -> {
             lbTime.textProperty().bind(Bindings.createStringBinding(() -> c.getTime().format(DateTimeFormatter.ofPattern("HH:mm:ss")), c.getElapsedTime().currentTimeProperty()));
             c.start();
-            c.getRequestSuspend().setSuspended(false);
             btnStart.setDisable(true);
             btnStart.setText("Ejecutándose");
             btnStart.setStyle("-fx-background-color: rgb(132,227,70);");
@@ -70,7 +69,7 @@ public class MainController {
                 c.stop();
             ((Stage) btnStart.getScene().getWindow()).close();
         });
-        about.setOnAction(event -> App.loadScene(new Stage(), "about", "Sobre Chronometer", true, false));
+        about.setOnAction(event -> App.loadScene(new Stage(), "about", "Sobre StopWatch", true, false));
         Platform.runLater(() -> btnStart.getScene().getWindow().setOnCloseRequest(event ->{ if(c.getThread()!=null) c.stop(); }));
     }
 }

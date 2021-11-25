@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import io.github.palexdev.materialfx.controls.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXLabel?>
+<?import io.github.palexdev.materialfx.font.MFXFontIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Alvaro.controller.MainController">
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Alvaro.controller.MainController">
    <center>
       <MFXLabel fx:id="lbTime" labelStyle="STYLE2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-width: 20;" BorderPane.alignment="CENTER">
          <font>
@@ -45,12 +52,18 @@
         <menus>
           <Menu mnemonicParsing="false" text="Archivo">
             <items>
-              <MenuItem fx:id="close" mnemonicParsing="false" text="Cerrar" />
+              <MenuItem fx:id="close" mnemonicParsing="false" text="Cerrar">
+                     <graphic>
+                        <MFXFontIcon description="mfx-x" />
+                     </graphic></MenuItem>
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Ayuda">
             <items>
-              <MenuItem fx:id="about" mnemonicParsing="false" text="Sobre" />
+              <MenuItem fx:id="about" mnemonicParsing="false" text="Sobre">
+                     <graphic>
+                        <MFXFontIcon description="mfx-exclamation-circle" />
+                     </graphic></MenuItem>
             </items>
           </Menu>
         </menus>

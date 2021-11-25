@@ -13,22 +13,21 @@ public class StopWatch implements Runnable {
     private final RequestSuspend requestSuspend = new RequestSuspend();
     //Necesitamos un puntero al hilo actual para poder interrumpirlo posteriormente en el stop
     private Thread t;
+    private int i = 0;
 
     public StopWatch() {
-        this(0, 0, 0);
-    }
-
-    public StopWatch(int hour, int minutes, int seconds) {
         this.elapsedTime = new Timeline(new KeyFrame(Duration.millis(1000), event -> this.time = this.time.plusSeconds(1)));
         this.elapsedTime.setCycleCount(Animation.INDEFINITE);
-        this.time = LocalTime.of(hour, minutes, seconds);
+        this.time = LocalTime.of(0, 0, 0);
+        this.requestSuspend.setSuspended(false);
     }
 
     /**
      * Creamos un nuevo hilo, lo asignamos a la variable t para tenerla de puntero y lanzamos el hilo
      */
     public void start() {
-        this.t = new Thread(this);
+        this.t = new Thread(this, "Hilo " + i++);
+        this.requestSuspend.setSuspended(false);
         t.start();
     }
 
@@ -58,16 +57,18 @@ public class StopWatch implements Runnable {
      * En función de si está suspendido o no se parará el cronómetro o de lo contrario continuará por donde lo dejó.
      * El system.out.print es para que tenga algo que iterar y no se detenga el hilo hasta que no lo interrumpamos
      */
-    public void loop() {
+    private void loop() {
         this.elapsedTime.playFromStart();
         this.time = LocalTime.of(0, 0, 0);
-        while (!t.isInterrupted()) {
+        while (t!=null && !t.isInterrupted()) {
             System.out.print("");
             if (!this.getRequestSuspend().getSuspend())
                 this.elapsedTime.play();
-            else
+            else if (this.getRequestSuspend().getSuspend())
                 this.elapsedTime.stop();
         }
+        //System.out.println("Soy: " + t.getName() + " y he terminado mi trabajo");
+        this.time = LocalTime.of(0, 0, 0);
     }
 
     public Timeline getElapsedTime() {
@@ -82,7 +83,7 @@ public class StopWatch implements Runnable {
         return this.requestSuspend;
     }
 
-    public Thread getThread(){
+    public Thread getThread() {
         return this.t;
     }
 
