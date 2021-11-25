@@ -11,10 +11,4 @@ public class RequestSuspend {
         this.suspended = b;
         notifyAll();
     }
-
-    public synchronized void waitResume() throws InterruptedException{
-        while(this.suspended){
-            wait();
-        }
-    }
 }
