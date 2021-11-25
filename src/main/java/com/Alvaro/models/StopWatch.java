@@ -33,18 +33,16 @@ public class StopWatch implements Runnable {
     }
 
     /**
-     * Interrumpimos el hilo si la animación está en ejecucción o pausada
+     * Interrumpimos el hilo
      */
     public void stop() {
-        if (this.elapsedTime.getStatus().equals(Animation.Status.RUNNING) || this.elapsedTime.getStatus().equals(Animation.Status.PAUSED)) {
-            t.interrupt();
-        }
+        t.interrupt();
     }
 
     /**
      * Cambiamos el valor de suspendido para parar el cronómetro, pero NO se interrumpe
      */
-    public void pause(){
+    public void pause() {
         this.requestSuspend.setSuspended(true);
     }
 
