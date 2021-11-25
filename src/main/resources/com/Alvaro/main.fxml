@@ -8,7 +8,7 @@
 
 <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Alvaro.controller.MainController">
    <center>
-      <MFXLabel fx:id="lbTime" labelStyle="STYLE2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
+      <MFXLabel fx:id="lbTime" labelStyle="STYLE2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-border-width: 20;" BorderPane.alignment="CENTER">
          <font>
             <Font size="96.0" />
          </font>
