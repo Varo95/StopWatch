@@ -26,11 +26,14 @@ public class MainController {
     private MenuItem close;
     @FXML
     private MenuItem about;
+    @FXML
+    private MFXLabel threadEnd;
 
     @FXML
     protected void initialize() {
         StopWatch c = new StopWatch();
         lbTime.setText("00:00:00");
+        c.getThreadEndedString().addListener((observable, oldValue, newValue) -> threadEnd.setText(newValue));
         btnStart.setOnAction(event -> {
             lbTime.textProperty().bind(Bindings.createStringBinding(() -> c.getTime().format(DateTimeFormatter.ofPattern("HH:mm:ss")), c.getElapsedTime().currentTimeProperty()));
             c.start();

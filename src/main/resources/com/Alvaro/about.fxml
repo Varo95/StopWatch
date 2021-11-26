@@ -19,9 +19,9 @@
                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" />
                 </columnConstraints>
                 <rowConstraints>
-                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                 </rowConstraints>
                 <Label text="Desarrolladores" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
                     <font>
@@ -31,7 +31,7 @@
                         <Insets right="25.0" />
                     </GridPane.margin>
                 </Label>
-                <Label text="Correo electrónico de contacto" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                <Label text="Correos de contacto" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                     <font>
                         <Font name="System Bold" size="16.0" />
                     </font>
@@ -47,12 +47,12 @@
                         <Insets right="25.0" />
                     </GridPane.margin>
                 </Label>
-                <Label text="Álvaro Pérez Urbano, Raúl Tenllado Corona" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                <Label text="Álvaro Pérez Urbano&#10;Raúl Tenllado Corona" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
                     <GridPane.margin>
                         <Insets left="25.0" />
                     </GridPane.margin>
                 </Label>
-                <Label text="alvaroperezab@gmail.com" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                <Label text="alvaroperezab@gmail.com&#10;raultc95@gmail.com" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                     <GridPane.margin>
                         <Insets left="25.0" />
                     </GridPane.margin>
@@ -91,6 +91,9 @@
             <font>
                 <Font name="System Bold" size="20.0" />
             </font>
+         <BorderPane.margin>
+            <Insets bottom="5.0" />
+         </BorderPane.margin>
         </Label>
     </top>
    <padding>

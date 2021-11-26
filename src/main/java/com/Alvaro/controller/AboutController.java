@@ -28,7 +28,10 @@ public class AboutController {
                         uri = new URI("https://github.com/Varo95/StopWatch");
                         desktop.browse(uri);
                     } catch (URISyntaxException | IOException e) {
-                        e.printStackTrace();
+                        if (e.getClass().equals(URISyntaxException.class))
+                            logger.error("La cadena introducida viola el código RFC2396" + e.getMessage());
+                         else
+                            logger.error("No se encontró el navegador por defecto " + e.getMessage());
                     }
                 }
             }
