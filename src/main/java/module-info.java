@@ -7,6 +7,8 @@ module PSPCrono {
     requires javafx.media;
     requires javafx.base;
     requires org.slf4j;
+    requires com.h2database;
+    requires java.sql;
 
     opens com.Alvaro.controller to javafx.fxml, javafx.controls, javafx.graphics, javafx.media, javafx.base, MaterialFX;
     exports com.Alvaro;

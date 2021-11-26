@@ -1,5 +1,6 @@
 package com.Alvaro;
 
+import com.Alvaro.h2.ConnectionUtil;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -18,6 +19,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage){
+        ConnectionUtil.connect();
         loadScene(primaryStage, "main", " Cronómetro", false, true);
     }
 
@@ -47,5 +49,6 @@ public class App extends Application {
 
     public static void main(String[] args) {
         launch();
+        ConnectionUtil.disconnect();
     }
 }

@@ -4,10 +4,14 @@ import com.Alvaro.App;
 import com.Alvaro.models.StopWatch;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXLabel;
+import io.github.palexdev.materialfx.controls.legacy.MFXLegacyTableView;
 import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TableColumn;
 import javafx.stage.Stage;
 
 import java.time.format.DateTimeFormatter;
@@ -28,10 +32,16 @@ public class MainController {
     private MenuItem about;
     @FXML
     private MFXLabel threadEnd;
+    @FXML
+    private MFXLegacyTableView<String> table_history;
+    @FXML
+    private TableColumn<String, String> column_history;
 
     @FXML
     protected void initialize() {
         StopWatch c = new StopWatch();
+        configureTable();
+        table_history.setItems(FXCollections.observableList(StopWatch.getHistory()));
         lbTime.setText("00:00:00");
         c.getThreadEndedString().addListener((observable, oldValue, newValue) -> threadEnd.setText(newValue));
         btnStart.setOnAction(event -> {
@@ -59,6 +69,7 @@ public class MainController {
         btnRestart.setOnAction(event -> {
             lbTime.textProperty().unbind();
             lbTime.setText("00:00:00");
+            table_history.getItems().add(0,String.valueOf(c.getTime()));
             c.stop();
             btnRestart.setDisable(true);
             btnStopResume.setDisable(true);
@@ -75,4 +86,9 @@ public class MainController {
         about.setOnAction(event -> App.loadScene(new Stage(), "about", "Sobre StopWatch", true, false));
         Platform.runLater(() -> btnStart.getScene().getWindow().setOnCloseRequest(event ->{ if(c.getThread()!=null) c.stop(); }));
     }
+
+    private void configureTable(){
+        column_history.setCellValueFactory(each -> new SimpleStringProperty(each.getValue()));
+    }
+
 }
