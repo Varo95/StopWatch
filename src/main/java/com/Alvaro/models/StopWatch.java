@@ -90,8 +90,10 @@ public class StopWatch {
             System.out.print("");
             if (!this.getRequestSuspend().getSuspend())
                 this.elapsedTime.play();
-            else if (this.getRequestSuspend().getSuspend())
+            else if (this.getRequestSuspend().getSuspend()) {
                 this.elapsedTime.stop();
+                this.getRequestSuspend().waitResume();
+            }
         }
         querys q;
         List<Object> params = new ArrayList<>();

@@ -85,6 +85,7 @@ public class MainController {
         });
         about.setOnAction(event -> App.loadScene(new Stage(), "about", "Sobre StopWatch", true, false));
         Platform.runLater(() -> btnStart.getScene().getWindow().setOnCloseRequest(event ->{ if(c.getThread()!=null) c.stop(); }));
+        //Thread.getAllStackTraces().keySet().forEach((t) -> System.out.println(t.getName()));
     }
 
     private void configureTable(){
